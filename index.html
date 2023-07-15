@@ -384,11 +384,11 @@
     $("#submit-form").submit((e)=>{
         e.preventDefault()
         $.ajax({
-            url:"https://script.google.com/macros/s/AKfycbw2B_nO8rRBNIabMcxFy9OJEjozedLUL5kEuN_PCOlgAF7qFk1NJwc7cMnp9T-KG7cP2Q/exec",
+            url:"https://script.google.com/macros/s/AKfycbyPf64u0VnhapErbdKX-GmXgCKyWXbEfEPUiujzI98X_vJqfGjdmLX6tpEDnqhXsd2YKw/exec",
             data:$("#submit-form").serialize(),
             method:"post",
             success:function (response){
-                alert("Form submitted successfully")
+                // alert("Form submitted successfully")
                 window.location.reload()
                 //window.location.href="https://google.com"
             },
