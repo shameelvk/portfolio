@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-dark text-white font-poppins overflow-x-hidden;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply m-0 font-semibold;
+  }
+
+  h2 {
+    @apply text-white;
+  }
+
+  a {
+    @apply text-primary no-underline transition-all duration-300;
+  }
+
+  a:hover {
+    @apply opacity-80;
+  }
+
+  ::selection {
+    @apply bg-primary text-white;
+  }
+
+  ::-moz-selection {
+    @apply bg-primary text-white;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-red-600;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-20 md:py-24;
+  }
+
+  .container-custom {
+    @apply container mx-auto px-4 md:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-2xl md:text-3xl font-semibold text-center mb-12 md:mb-16 uppercase tracking-wider;
+  }
+
+  .btn-primary {
+    @apply bg-primary border-0 rounded-none text-white text-xs h-12 leading-[3rem] px-8 uppercase transition-all duration-300;
+  }
+
+  .form-input {
+    @apply bg-transparent border border-white rounded-none text-white text-xs font-medium h-12 px-4 mb-6 uppercase tracking-wider placeholder:text-gray-400 focus:outline-none focus:border-primary transition-colors;
+  }
+
+  .form-textarea {
+    @apply bg-transparent border border-white rounded-none text-white text-xs font-medium px-4 py-3 mb-6 uppercase tracking-wider placeholder:text-gray-400 focus:outline-none focus:border-primary transition-colors min-h-[150px];
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .gradient-overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+  }
+}
+
+/* Typing animation */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+.typing-animation {
+  overflow: hidden;
+  border-right: 2px solid #dc143c;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
+}
