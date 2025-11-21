@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Header = () => {
@@ -53,61 +54,94 @@ const Header = () => {
   ];
 
   return (
-    <header
+    <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-dark shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-dark/95 backdrop-blur-sm' : 'bg-transparent'
       }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, type: 'spring', stiffness: 100 }}
+      style={{
+        borderBottom: isScrolled ? '1px solid rgba(220, 20, 60, 0.1)' : 'none',
+      }}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <button
+          <motion.button
             onClick={() => scrollToSection('home')}
-            className="text-2xl md:text-3xl font-playfair italic text-light-gray hover:text-primary transition-colors"
+            className="text-2xl md:text-3xl font-playfair italic text-light-gray hover:text-primary transition-colors cursor-magnetic"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            shameel
-          </button>
+            <span className="gradient-text">shameel</span>
+          </motion.button>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:block">
-            <ul className="flex items-center space-x-8">
-              {navItems.map((item) => (
-                <li key={item.id}>
-                  <button
+            <ul className="flex items-center space-x-8 relative">
+              {navItems.map((item, index) => (
+                <motion.li
+                  key={item.id}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <motion.button
                     onClick={() => scrollToSection(item.id)}
-                    className={`text-sm font-medium uppercase transition-colors ${
+                    className={`text-sm font-medium uppercase transition-colors relative cursor-magnetic ${
                       activeSection === item.id
                         ? 'text-primary'
                         : 'text-white hover:text-primary'
                     }`}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     {item.label}
-                  </button>
-                </li>
+                    {activeSection === item.id && (
+                      <motion.div
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
+                        layoutId="activeIndicator"
+                        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                  </motion.button>
+                </motion.li>
               ))}
             </ul>
           </nav>
 
           {/* Mobile Menu Toggle */}
-          <button
+          <motion.button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-white text-2xl z-50"
+            className="lg:hidden text-white text-2xl z-50 cursor-magnetic"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
             {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-          </button>
+          </motion.button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
-      <div
-        className={`fixed inset-0 bg-dark-gray bg-opacity-95 lg:hidden transition-transform duration-300 ${
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+      <motion.div
+        className="fixed inset-0 glass lg:hidden"
+        initial={{ x: '100%' }}
+        animate={{ x: isMobileMenuOpen ? 0 : '100%' }}
+        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       >
         <nav className="flex items-center justify-center h-full">
           <ul className="space-y-6 text-center">
-            {navItems.map((item) => (
-              <li key={item.id}>
+            {navItems.map((item, index) => (
+              <motion.li
+                key={item.id}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{
+                  opacity: isMobileMenuOpen ? 1 : 0,
+                  x: isMobileMenuOpen ? 0 : 50,
+                }}
+                transition={{ delay: index * 0.1 }}
+              >
                 <button
                   onClick={() => scrollToSection(item.id)}
                   className={`text-lg font-medium uppercase transition-colors ${
@@ -118,12 +152,12 @@ const Header = () => {
                 >
                   {item.label}
                 </button>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </nav>
-      </div>
-    </header>
+      </motion.div>
+    </motion.header>
   );
 };
 

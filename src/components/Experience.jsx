@@ -11,13 +11,13 @@ const Experience = () => {
           {experienceData.map((exp, index) => (
             <div
               key={exp.id}
-              className={`relative pl-8 md:pl-12 pb-12 border-l-2 border-primary ${
+              className={`relative pl-10 md:pl-12 pb-12 border-l-2 border-primary ${
                 index === experienceData.length - 1 ? 'pb-0' : ''
               } animate-slide-up`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               {/* Timeline Dot */}
-              <div className="absolute left-0 top-0 w-4 h-4 bg-primary rounded-full -translate-x-[9px] ring-4 ring-dark-gray"></div>
+              <div className="absolute left-0 top-0 w-5 h-5 bg-primary rounded-full -translate-x-[10px] ring-4 ring-dark-gray"></div>
 
               {/* Content */}
               <div className="bg-dark p-6 md:p-8 rounded-lg hover:shadow-xl hover:shadow-primary/10 transition-shadow duration-300">

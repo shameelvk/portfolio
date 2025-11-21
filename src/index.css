@@ -9,6 +9,7 @@
 
   html {
     @apply scroll-smooth;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -61,6 +62,13 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-red-600;
   }
+
+  /* Re-enable cursor for touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    * {
+      cursor: auto !important;
+    }
+  }
 }
 
 @layer components {
@@ -87,6 +95,39 @@
   .form-textarea {
     @apply bg-transparent border border-white rounded-none text-white text-xs font-medium px-4 py-3 mb-6 uppercase tracking-wider placeholder:text-gray-400 focus:outline-none focus:border-primary transition-colors min-h-[150px];
   }
+
+  /* Glassmorphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-card {
+    background: rgba(26, 26, 26, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(135deg, #dc143c, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow Effects */
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(220, 20, 60, 0.4),
+                0 0 40px rgba(220, 20, 60, 0.2);
+  }
+
+  .glow-primary-sm {
+    box-shadow: 0 0 10px rgba(220, 20, 60, 0.3);
+  }
 }
 
 @layer utilities {
@@ -96,6 +137,14 @@
 
   .gradient-overlay {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
   }
 }
 
