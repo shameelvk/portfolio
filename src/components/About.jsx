@@ -1,5 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import DownloadResumeButton from './DownloadResumeButton';
 
 const About = () => {
   const imageRef = useRef(null);
@@ -120,7 +121,7 @@ const About = () => {
             {/* Skill Badges */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap gap-3"
+              className="flex flex-wrap gap-3 mb-8"
             >
               {skills.map((skill, index) => (
                 <motion.span
@@ -139,6 +140,11 @@ const About = () => {
                   {skill}
                 </motion.span>
               ))}
+            </motion.div>
+
+            {/* Download Resume Button */}
+            <motion.div variants={itemVariants}>
+              <DownloadResumeButton />
             </motion.div>
           </motion.div>
         </motion.div>
