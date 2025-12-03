@@ -125,37 +125,40 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       <motion.div
-        className="fixed inset-0 glass lg:hidden"
+        className="fixed top-0 left-0 right-0 bottom-0 glass lg:hidden z-40"
         initial={{ x: '100%' }}
         animate={{ x: isMobileMenuOpen ? 0 : '100%' }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+        style={{ height: '100vh', position: 'fixed' }}
       >
-        <nav className="flex items-center justify-center h-full">
-          <ul className="space-y-6 text-center">
-            {navItems.map((item, index) => (
-              <motion.li
-                key={item.id}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{
-                  opacity: isMobileMenuOpen ? 1 : 0,
-                  x: isMobileMenuOpen ? 0 : 50,
-                }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <button
-                  onClick={() => scrollToSection(item.id)}
-                  className={`text-lg font-medium uppercase transition-colors ${
-                    activeSection === item.id
-                      ? 'text-primary'
-                      : 'text-white hover:text-primary'
-                  }`}
+        <div className="w-full h-full flex items-center justify-center pt-20">
+          <nav className="w-full">
+            <ul className="space-y-6 text-center px-6">
+              {navItems.map((item, index) => (
+                <motion.li
+                  key={item.id}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{
+                    opacity: isMobileMenuOpen ? 1 : 0,
+                    x: isMobileMenuOpen ? 0 : 50,
+                  }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  {item.label}
-                </button>
-              </motion.li>
-            ))}
-          </ul>
-        </nav>
+                  <button
+                    onClick={() => scrollToSection(item.id)}
+                    className={`text-lg md:text-xl font-medium uppercase transition-colors block w-full py-2 ${
+                      activeSection === item.id
+                        ? 'text-primary'
+                        : 'text-white hover:text-primary'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                </motion.li>
+              ))}
+            </ul>
+          </nav>
+        </div>
       </motion.div>
     </motion.header>
   );
