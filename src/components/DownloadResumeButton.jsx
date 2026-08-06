@@ -1,12 +1,13 @@
-import { motion } from 'framer-motion';
-import { FaDownload } from 'react-icons/fa';
+import { motion } from "framer-motion";
+import { FaDownload } from "react-icons/fa";
 
 const DownloadResumeButton = () => {
   // Google Drive resume link
-  const RESUME_URL = 'https://drive.google.com/file/d/1xaK7YgENqx5WpVapXXflYAHPqBwjQ5FI/view?usp=sharing';
+  const RESUME_URL =
+    "https://drive.google.com/file/d/1-uW477Cw3bSN8WxN2QG9LP-mh49MZP8D/view?usp=sharing";
 
   const handleDownload = () => {
-    window.open(RESUME_URL, '_blank');
+    window.open(RESUME_URL, "_blank");
   };
 
   return (
@@ -19,7 +20,7 @@ const DownloadResumeButton = () => {
       transition={{ duration: 0.5 }}
       whileHover={{
         scale: 1.05,
-        borderColor: 'rgba(220, 20, 60, 1)',
+        borderColor: "rgba(220, 20, 60, 1)",
       }}
       whileTap={{ scale: 0.95 }}
     >
@@ -27,23 +28,23 @@ const DownloadResumeButton = () => {
       <motion.div
         className="absolute inset-0 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{
-          boxShadow: '0 0 15px rgba(220, 20, 60, 0.5)',
+          boxShadow: "0 0 15px rgba(220, 20, 60, 0.5)",
         }}
       />
-      
+
       {/* Subtle shimmer effect */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent"
         animate={{
-          x: ['-200%', '200%'],
+          x: ["-200%", "200%"],
         }}
         transition={{
           duration: 3,
           repeat: Infinity,
-          ease: 'linear',
+          ease: "linear",
         }}
       />
-      
+
       {/* Button Content */}
       <span className="relative flex items-center gap-2">
         <FaDownload className="text-primary" />

@@ -1,10 +1,10 @@
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { useRef } from 'react';
-import DownloadResumeButton from './DownloadResumeButton';
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useRef } from "react";
+import DownloadResumeButton from "./DownloadResumeButton";
 
 const About = () => {
   const imageRef = useRef(null);
-  
+
   // Mouse position for magnetic effect
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -15,15 +15,15 @@ const About = () => {
 
   const handleMouseMove = (e) => {
     if (!imageRef.current) return;
-    
+
     const rect = imageRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    
+
     const distanceX = e.clientX - centerX;
     const distanceY = e.clientY - centerY;
     const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
-    
+
     // Magnetic effect within 200px radius
     if (distance < 200) {
       mouseX.set(distanceX * 0.15);
@@ -34,7 +34,16 @@ const About = () => {
     }
   };
 
-  const skills = ['React Native', 'Next.js', 'React.js', 'Framer Motion', 'Tailwind CSS', 'Redux'];
+  const skills = [
+    "React Native",
+    "Next.js",
+    "React.js",
+    "Framer Motion",
+    "Tailwind CSS",
+    "Redux",
+    "Firebase",
+    "Expo",
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -56,7 +65,11 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="section-padding bg-dark relative" onMouseMove={handleMouseMove}>
+    <section
+      id="about"
+      className="section-padding bg-dark relative"
+      onMouseMove={handleMouseMove}
+    >
       <div className="container-custom">
         <motion.div
           variants={containerVariants}
@@ -69,7 +82,7 @@ const About = () => {
             variants={itemVariants}
             className="text-3xl md:text-4xl font-playfair mb-8 lg:hidden"
           >
-            I'm Mohammed Shameel...
+            I'm Mohammed Shameel Vk...
           </motion.h2>
 
           {/* Grid for Image and Content */}
@@ -81,16 +94,20 @@ const About = () => {
                 className="relative glass-card p-8 rounded-lg"
                 style={{ x, y }}
                 animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               >
                 <motion.img
                   src="/assets/img/profile.jpg"
                   alt="Mohammed Shameel VK"
                   className="w-full h-[400px] object-cover rounded-lg shadow-2xl"
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.02,
-                    filter: 'brightness(1.1)',
-                    boxShadow: '0 0 30px rgba(220, 20, 60, 0.4)',
+                    filter: "brightness(1.1)",
+                    boxShadow: "0 0 30px rgba(220, 20, 60, 0.4)",
                   }}
                   transition={{ duration: 0.3 }}
                 />
@@ -106,26 +123,45 @@ const About = () => {
                 variants={itemVariants}
                 className="text-3xl md:text-4xl font-playfair mb-6 hidden lg:block"
               >
-                I'm Mohammed Shameel...
+                I'm Mohammed Shameel Vk...
               </motion.h2>
-              
-              <motion.p variants={itemVariants} className="text-gray-300 leading-relaxed mb-6">
-                I'm a Front End and Mobile App Developer with a Bachelor of Science degree in 
-                Computer Science from the University of Calicut. With <span className="gradient-text font-semibold">1.7 years 
-                of professional experience</span>, I specialize in building responsive and user-friendly 
-                web and mobile applications.
+
+              <motion.p
+                variants={itemVariants}
+                className="text-gray-300 leading-relaxed mb-6"
+              >
+                I'm a Front End and Mobile App Developer with a Bachelor of
+                Science degree in Computer Science from the University of
+                Calicut. With{" "}
+                <span className="gradient-text font-semibold">
+                  2.6 years of professional experience
+                </span>
+                , I specialize in building responsive and user-friendly web and
+                mobile applications.
               </motion.p>
-              
-              <motion.p variants={itemVariants} className="text-gray-300 leading-relaxed mb-6">
-                My expertise lies in <span className="gradient-text font-semibold">React Native, Next.js, and React.js</span>, 
-                where I've successfully delivered high-quality applications. I'm proficient in integrating 
-                REST APIs, implementing state management solutions, and creating seamless user experiences.
+
+              <motion.p
+                variants={itemVariants}
+                className="text-gray-300 leading-relaxed mb-6"
+              >
+                My expertise lies in{" "}
+                <span className="gradient-text font-semibold">
+                  React Native, Next.js, and React.js
+                </span>
+                , where I've successfully delivered high-quality applications.
+                I'm proficient in integrating REST APIs, implementing state
+                management solutions, and creating seamless user experiences.
               </motion.p>
-              
-              <motion.p variants={itemVariants} className="text-gray-300 leading-relaxed mb-8">
-                I have a proven ability to collaborate in Agile teams and contribute to fast development 
-                cycles. As a quick learner focused on performance, clean code, and improving user experience, 
-                I'm always seeking opportunities to grow and add value to software development teams.
+
+              <motion.p
+                variants={itemVariants}
+                className="text-gray-300 leading-relaxed mb-8"
+              >
+                I have a proven ability to collaborate in Agile teams and
+                contribute to fast development cycles. As a quick learner
+                focused on performance, clean code, and improving user
+                experience, I'm always seeking opportunities to grow and add
+                value to software development teams.
               </motion.p>
 
               {/* Skill Badges */}
@@ -140,11 +176,15 @@ const About = () => {
                     initial={{ scale: 0, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.8 + index * 0.1, type: 'spring', stiffness: 200 }}
-                    whileHover={{ 
+                    transition={{
+                      delay: 0.8 + index * 0.1,
+                      type: "spring",
+                      stiffness: 200,
+                    }}
+                    whileHover={{
                       scale: 1.1,
-                      boxShadow: '0 0 15px rgba(220, 20, 60, 0.4)',
-                      borderColor: 'rgba(220, 20, 60, 0.8)',
+                      boxShadow: "0 0 15px rgba(220, 20, 60, 0.4)",
+                      borderColor: "rgba(220, 20, 60, 0.8)",
                     }}
                   >
                     {skill}
