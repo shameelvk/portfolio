@@ -103,7 +103,7 @@ const About = () => {
                 <motion.img
                   src="/assets/img/profile.jpg"
                   alt="Mohammed Shameel VK"
-                  className="w-full h-[400px] object-cover rounded-lg shadow-2xl"
+                  className="w-full h-[400px] lg:h-[550px] object-cover object-top rounded-lg shadow-2xl"
                   whileHover={{
                     scale: 1.02,
                     filter: "brightness(1.1)",
