@@ -15,7 +15,7 @@ export const projectsData = [
       "React Navigation",
     ],
     github: "",
-    demo: "",
+    demo: "https://play.google.com/store/apps/details?id=com.ajfuture.cowallet.v2&pcampaignid=web_share",
   },
   {
     id: 1,
@@ -33,7 +33,7 @@ export const projectsData = [
       "React Query",
     ],
     github: "",
-    demo: "",
+    demo: "https://play.google.com/store/apps/details?id=com.aladdin365mobile&hl=en_IN",
   },
   {
     id: 2,
@@ -45,7 +45,7 @@ export const projectsData = [
     image: "/assets/img/wheeliyo.jpg",
     technologies: ["React Native", "Expo", "Payment Gateway", "Firebase"],
     github: "",
-    demo: "",
+    demo: "https://play.google.com/store/apps/details?id=com.wheeliyo&hl=en_IN",
   },
   {
     id: 3,
