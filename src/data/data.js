@@ -91,6 +91,14 @@ export const experienceData = [
 
 export const educationData = [
   {
+    id: 4,
+    institution: "Indira Gandhi National Open University",
+    degree: "Master of Computer Applications",
+    location: "Kochi,Kerala",
+    duration: "Jan 2025 - Present",
+    grade: "Pursuing",
+  },
+  {
     id: 1,
     institution: "University of Calicut",
     degree: "Bachelor of Computer Science",
