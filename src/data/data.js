@@ -139,3 +139,26 @@ export const awardsData = [
     description: "Awarded for collaborative coding and community contribution",
   },
 ];
+export const servicesData = [
+  {
+    id: 1,
+    title: "Mobile App Development",
+    description:
+      "Building cross-platform, high-performance mobile applications using React Native and Expo.",
+    icon: "FaMobileAlt",
+  },
+  {
+    id: 2,
+    title: "Frontend Web Development",
+    description:
+      "Creating responsive, accessible, and fast web applications using React.js, Next.js, and Tailwind CSS.",
+    icon: "FaLaptopCode",
+  },
+  {
+    id: 3,
+    title: "Backend & API Integration",
+    description:
+      "Integrating secure REST APIs, Firebase, and handling backend logic with NestJS.",
+    icon: "FaServer",
+  },
+];

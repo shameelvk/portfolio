@@ -1,13 +1,6 @@
 import { FaGithub, FaTwitter, FaInstagram, FaLinkedin, FaArrowUp } from 'react-icons/fa';
 
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-
   const socialLinks = [
     { icon: FaGithub, url: 'https://github.com/shameelvk', label: 'GitHub' },
     { icon: FaTwitter, url: 'https://twitter.com/shameel__vk', label: 'Twitter' },
@@ -42,15 +35,6 @@ const Footer = () => {
           </p>
         </div>
       </div>
-
-      {/* Back to Top Button */}
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-6 right-6 bg-primary text-white p-4 rounded-lg shadow-lg hover:bg-red-600 transition-all duration-300 hover:scale-110 z-40"
-        aria-label="Back to top"
-      >
-        <FaArrowUp className="text-xl" />
-      </button>
     </footer>
   );
 };
