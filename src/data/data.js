@@ -35,7 +35,7 @@ export const experienceData = [
   {
     id: 3,
     company: "AJ Future Development",
-    position: "Software Developer",
+    position: "Software Developer & Team lead",
     location: "Malappuram, Kerala",
     duration: "December 2025 - Present",
     description: [
